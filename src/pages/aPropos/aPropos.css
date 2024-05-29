@@ -1,0 +1,14 @@
+.aPropos {
+    display: flex;
+    /* flex-direction: column; */
+    align-items: center;
+    justify-content: center;
+}
+
+.aPropos__img {
+    width: 100%; /* Définir la largeur de l'image */
+    height: 150px; /* Ajuster automatiquement la hauteur en fonction de la largeur */
+    object-fit: cover;
+    border-radius: 25px;
+    margin: 20px;
+}
