@@ -1,5 +1,5 @@
 import React from "react"
-import "./aPropos.css"
+import "./aPropos.scss"
 import logo from "../../assets/kalen-emsley-Bkci_8qcdvQ-unsplash 2.png"
 
 function APropos() {

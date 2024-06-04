@@ -16,8 +16,8 @@ function AllRoutes() {
                     <Routes>
                         <Route path="/" element={<Accueil />} />
                         <Route path="/aPropos" element={<APropos />} />
-                        <Route path="/logement" element={<Logement />} />
-                        <Route path="/notfound" element={<NotFound />} />
+                        <Route path="/logement/:id" element={<Logement />} />
+                        <Route path="*" element={<NotFound />} />
                     </Routes>
                     <Footer />
                 </Router>

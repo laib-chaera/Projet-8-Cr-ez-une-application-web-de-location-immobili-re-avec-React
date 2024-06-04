@@ -1,4 +1,4 @@
-.notFound{
+.notFound {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -6,7 +6,12 @@
     font-size: 2rem;
     font-weight: bold;
     color: #f00;
-    background-color: #000;
+    background-color: white;
     text-align: center;
     flex-direction: column;
+
+    a {
+        color: black;
+        font-size: 18px;
+    }
 }
