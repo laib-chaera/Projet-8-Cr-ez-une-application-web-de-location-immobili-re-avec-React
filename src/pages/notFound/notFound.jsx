@@ -2,6 +2,8 @@ import React from "react"
 import "./notFound.scss"
 import { Link } from "react-router-dom"
 
+// ---------------COMPOSANT NOTFOUND-------------------
+
 function NotFound() {
     return (
         <div className="notFound">

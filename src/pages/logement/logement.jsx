@@ -1,131 +1,71 @@
-import React from "react"
+import React, { useState } from "react" //useState est un Hook de React qui permet de gérer l'état local dans un composant fonctionnel.
 import "./logement.scss"
-import { useParams } from "react-router-dom"
+import { useParams } from "react-router-dom" //Hook de React Router qui permet d'extraire les paramètres de l'URL.
 import DataLogements from "../../data/logements.json"
+import arrowLeft from "../../assets/arrowLeft.png"
+import arrowRight from "../../assets/arrowRight.png"
+
+// //------- COMPOSANT LOGEMENT------
+// //-------Utilisation de useParams et useState------
+// //Affichage les détails d'un logement en fonction de son identifiant (id) extrait de l'URL grâce à useParams de React Router.
 
 function Logement() {
     const { id } = useParams()
 
-    const finsLogementId = (id) => {
-        return DataLogements.find((logement) => logement.id === id)
+    function findLogementId(identifiant) {
+        return DataLogements.find((logement) => logement.id === identifiant)
+    }
+    const logementFound = findLogementId(id)
+
+    const [currentImageIndex, setCurrentImageIndex] = useState(0)
+    const pictures = logementFound.pictures
+
+    const goToPreviousImage = () => {
+        setCurrentImageIndex((index) =>
+            index === 0 ? pictures.length - 1 : index - 1,
+        )
     }
 
-    const logement = finsLogementId(id)
-    const pictures = logement.pictures
+    const goToNextImage = () => {
+        setCurrentImageIndex((index) =>
+            index === pictures.length - 1 ? 0 : index + 1,
+        )
+    }
 
     return (
         <div className="logement">
-            <img src={logement.cover} alt={logement.title} />
-            <h2>{logement.title}</h2>
-            <p>{logement.host.name}</p>
-            <p>{logement.rating}</p>
-            <p>{logement.tags}</p>
-            <div>
-                <h3>{logement.description}</h3>
-                <h3>{logement.equipments}</h3>
+            <div className="carousel">
+                <img
+                    src={pictures[currentImageIndex]}
+                    alt={logementFound.title}
+                    className="carousel-image"
+                />
+                <img
+                    src={arrowLeft}
+                    alt="Previous"
+                    className="arrow-left"
+                    onClick={goToPreviousImage}
+                />
+                <img
+                    src={arrowRight}
+                    alt="Next"
+                    className="arrow-right"
+                    onClick={goToNextImage}
+                />
+                <p className="carousel-counter">
+                    {currentImageIndex + 1} / {pictures.length}
+                </p>
             </div>
-            <div className="pictures">
-                {pictures.map((picture, index) => (
-                    <img src={picture} alt={logement.title} key={index} />
-                ))}
+            <h2>{logementFound.title}</h2>
+            <p>{logementFound.host.name}</p>
+            <p>{logementFound.rating}</p>
+            <p>{logementFound.tags}</p>
+            <div>
+                <h3>{logementFound.description}</h3>
+                <h3>{logementFound.equipments}</h3>
             </div>
         </div>
     )
 }
 
 export default Logement
-
-// réponse mentor
-// import { useFetch } from '../../utils/useFetch'
-// import { useParams } from 'react-router-dom'
-
-// import LoadingScreen from '../../components/Loading'
-// import Error from '../../components/Error'
-// import Error404 from '../404'
-
-// import Gallery from '../../components/Gallery'
-// import Tag from '../../components/Tag'
-// import Rating from '../../components/Rating'
-// import Collapse from '../../components/Collapse'
-
-// import './style.scss'
-
-// function Annonce() {
-// 	/* Fetching the data from the json file. */
-// 	const annonces = useFetch(window.location.origin + '/Kasa/annonces.json')
-
-// 	/* Getting the id of the annonce from the URL. */
-// 	const { annonceId } = useParams()
-// 	/* Looking for the annonce with the id that is in the URL. */
-// 	let thisAnnonce
-// 	if (annonces.fetchedData) {
-// 		thisAnnonce = annonces.fetchedData.find(
-// 			(annonce) => annonce.id === annonceId
-// 		)
-// 	}
-
-// 	/* Checking if the data is loading and if it is, it will display a loading screen. */
-// 	if (annonces.isLoading) {
-// 		return <LoadingScreen />
-// 	}
-
-// 	/* Checking if there is an error and if there is, it will display the Error component. */
-// 	if (annonces.error) {
-// 		return <Error />
-// 	}
-
-// 	/* Check if the annonce is exist and not loading. If it is not, we return the Error404 component. */
-// 	if (!thisAnnonce) {
-// 		return <Error404 />
-// 	} else {
-// 		/* Splitting the name of the host into firstName and lastName. */
-// 		const [firstName, lastName] = thisAnnonce.host.name.split(' ')
-// 		/* Setting the title of the page. */
-// 		document.title = thisAnnonce.title + ' - Kasa'
-// 		return (
-// 			<section>
-// 				<Gallery images={thisAnnonce.pictures} />
-// 				<div className="annonce-info-rating-host-wrapper">
-// 					<div className="annonce-info-wrapper">
-// 						<h1 className="annonce-title">{thisAnnonce.title}</h1>
-// 						<p className="annonce-location">
-// 							{thisAnnonce.location}
-// 						</p>
-// 						<div className="tag-wrapper">
-// 							{thisAnnonce.tags.map((tag, index) => (
-// 								<Tag tagName={tag} key={`${tag}-${index}`} />
-// 							))}
-// 						</div>
-// 					</div>
-// 					<div className="rating-host-wrapper">
-// 						<Rating rating={thisAnnonce.rating} />
-// 						<div className="host-wrapper">
-// 							<div className="host-name">
-// 								{firstName}
-// 								<br />
-// 								{lastName}
-// 							</div>
-// 							<img
-// 								className="host-picture"
-// 								src={thisAnnonce.host.picture}
-// 								alt="Host"
-// 							/>
-// 						</div>
-// 					</div>
-// 				</div>
-// 				<div className="description-equipments-wrapper">
-// 					<Collapse
-// 						title="Description"
-// 						content={thisAnnonce.description}
-// 					/>
-// 					<Collapse
-// 						title="Équipements"
-// 						content={thisAnnonce.equipments}
-// 					/>
-// 				</div>
-// 			</section>
-// 		)
-// 	}
-// }
-
-// export default Annonce
