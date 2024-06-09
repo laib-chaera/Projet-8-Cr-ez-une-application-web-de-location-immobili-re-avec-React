@@ -4,6 +4,13 @@ import "./appartement.scss"
 import { Link } from "react-router-dom"
 
 //-------UTILISATION DES PROPS DANS LE COMPOSANT APPARTEMENT------
+
+//-------COMPOSANT APPARTEMENT-------
+//Utilisation de la prop logements pour afficher la liste des logements dans le composant Appartement.
+//Utilisation de la méthode map pour parcourir la liste des logements et afficher un composant Link pour chaque logement.
+//Affichage de l'image de couverture et du titre du logement.
+//Lorsque l'utilisateur clique sur un logement, il est redirigé vers la page de détails du logement correspondant.
+
 function Appartement({ logements }) {
     return (
         <div className="galerie">

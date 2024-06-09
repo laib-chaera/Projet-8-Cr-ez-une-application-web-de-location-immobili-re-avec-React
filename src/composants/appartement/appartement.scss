@@ -1,14 +1,20 @@
 .galerie {
-    width: 90%;
-    // height: 345vh;
+    width: 100%;
+    max-width: 86vw;
     display: flex;
-    flex-wrap: wrap;
-    justify-content: left;
-    gap: 30px;
-    padding: 30px 0;
-    background: #f6f6f6;
-    border-radius: 25px;
+    flex-flow: row wrap;
+    justify-content: space-evenly;
     margin: 0 auto;
+    padding-top: 3.5rem;
+    padding-bottom: 0;
+    row-gap: 3.125rem;
+    border-radius: 1.5625rem;
+    background: #f7f7f7;
+
+    @media screen and (max-width: 450px) {
+        padding-top: 2rem;
+        width: 100%;
+    }
 
     .appartement {
         position: relative;
@@ -16,8 +22,10 @@
         height: auto;
         display: flex;
         flex-direction: column;
-        margin: 10px 20px;
-        // padding: 10px;
+
+        @media (max-width: 789) {
+            width: 45%;
+        }
         border-radius: 20px;
         // background-color: #f0f0f0;
         background: linear-gradient(
@@ -31,6 +39,16 @@
         text-decoration: none;
         color: white;
         object-fit: cover;
+
+        @media (min-width: 451) {
+            width: 45%;
+            margin: 20px auto;
+        }
+
+        @media (max-width: 450px) {
+            width: 100%;
+            margin: 10px auto;
+        }
         &:hover {
             transform: scale(1.1);
             transition: transform 0.5s;
@@ -51,3 +69,17 @@
         }
     }
 }
+
+// .thumb-wrapper {
+// 	@include desktop-breakpoint {
+// 		display: flex;
+// 		flex-flow: row wrap;
+// 		justify-content: space-evenly;
+// 		margin: 0 auto;
+// 		padding-top: 3.5rem;
+// 		padding-bottom: 0;
+// 		row-gap: 3.125rem;
+// 		border-radius: 1.5625rem;
+// 		background: #f7f7f7;
+// 	}
+// }

@@ -1,23 +1,32 @@
-import React, { useState } from "react" //useState est un Hook de React qui permet de gérer l'état local dans un composant fonctionnel.
-import "./logement.scss"
-import { useParams } from "react-router-dom" //Hook de React Router qui permet d'extraire les paramètres de l'URL.
+import React, { useState, useEffect } from "react"
+import { useParams, useNavigate } from "react-router-dom"
 import DataLogements from "../../data/logements.json"
 import arrowLeft from "../../assets/arrowLeft.png"
 import arrowRight from "../../assets/arrowRight.png"
-
-// //------- COMPOSANT LOGEMENT------
-// //-------Utilisation de useParams et useState------
-// //Affichage les détails d'un logement en fonction de son identifiant (id) extrait de l'URL grâce à useParams de React Router.
+import "./logement.scss"
 
 function Logement() {
     const { id } = useParams()
+    const navigate = useNavigate()
 
     function findLogementId(identifiant) {
         return DataLogements.find((logement) => logement.id === identifiant)
     }
-    const logementFound = findLogementId(id)
 
+    const logementFound = findLogementId(id)
     const [currentImageIndex, setCurrentImageIndex] = useState(0)
+
+    useEffect(() => {
+        if (!logementFound) {
+            navigate("/404") // Rediriger vers la page 404 si le logement n'existe pas
+        }
+    }, [logementFound, navigate])
+
+    // Si logementFound n'existe pas, ne rien afficher pendant que la redirection est en cours
+    if (!logementFound) {
+        return null
+    }
+
     const pictures = logementFound.pictures
 
     const goToPreviousImage = () => {
@@ -40,29 +49,39 @@ function Logement() {
                     alt={logementFound.title}
                     className="carousel-image"
                 />
-                <img
-                    src={arrowLeft}
-                    alt="Previous"
-                    className="arrow-left"
-                    onClick={goToPreviousImage}
-                />
-                <img
-                    src={arrowRight}
-                    alt="Next"
-                    className="arrow-right"
-                    onClick={goToNextImage}
-                />
-                <p className="carousel-counter">
-                    {currentImageIndex + 1} / {pictures.length}
-                </p>
+                {pictures.length > 1 && (
+                    <>
+                        <img
+                            src={arrowLeft}
+                            alt="Previous"
+                            className="arrow-left"
+                            onClick={goToPreviousImage}
+                        />
+                        <img
+                            src={arrowRight}
+                            alt="Next"
+                            className="arrow-right"
+                            onClick={goToNextImage}
+                        />
+                        <p className="carousel-counter">
+                            {currentImageIndex + 1} / {pictures.length}
+                        </p>
+                    </>
+                )}
             </div>
-            <h2>{logementFound.title}</h2>
-            <p>{logementFound.host.name}</p>
-            <p>{logementFound.rating}</p>
-            <p>{logementFound.tags}</p>
             <div>
-                <h3>{logementFound.description}</h3>
-                <h3>{logementFound.equipments}</h3>
+                <div>
+                    <h2>{logementFound.title}</h2>
+                    <h3>{logementFound.location}</h3>
+                </div>
+                <p>{logementFound.tags}</p>
+                <p>{logementFound.host.name}</p>
+                <p>{logementFound.rating}</p>
+
+                <div>
+                    <h3>{logementFound.description}</h3>
+                    <h3>{logementFound.equipments}</h3>
+                </div>
             </div>
         </div>
     )
