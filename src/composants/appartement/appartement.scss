@@ -11,7 +11,7 @@
     border-radius: 1.5625rem;
     background: #f7f7f7;
 
-    @media screen and (max-width: 450px) {
+    @media (max-width: 450px) {
         padding-top: 2rem;
         width: 100%;
     }
@@ -23,9 +23,9 @@
         display: flex;
         flex-direction: column;
 
-        @media (max-width: 789) {
-            width: 45%;
-        }
+        // @media (max-width: 335px) {
+        //     width: 100%;
+        // }
         border-radius: 20px;
         // background-color: #f0f0f0;
         background: linear-gradient(
@@ -40,15 +40,16 @@
         color: white;
         object-fit: cover;
 
-        @media (min-width: 451) {
-            width: 45%;
-            margin: 20px auto;
+        @media (max-width: 950px) {
+            width: 42%;
+            margin: 0 20px;
         }
 
-        @media (max-width: 450px) {
+        @media (max-width: 650px) {
             width: 100%;
-            margin: 10px auto;
+            margin: 0 35px;
         }
+
         &:hover {
             transform: scale(1.1);
             transition: transform 0.5s;

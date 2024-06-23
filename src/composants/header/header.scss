@@ -4,11 +4,22 @@
     align-items: center;
     color: #ff6060;
     font-weight: 700;
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     width: 100%;
     max-width: 86vw;
     margin: 0 auto;
     padding: 2rem 3rem;
+
+    @media (max-width: 550px) {
+        padding: 1rem 1.5rem;
+        font-size: 0.7rem;
+    }
+
+    &__img {
+        @media (max-width: 550px) {
+            width: 145px;
+        }
+    }
 }
 
 .navBar {
@@ -26,4 +37,9 @@
             text-decoration: underline;
         }
     }
+
+    // @media (max-width: 335px) {
+    //     gap: 1rem;
+    //     font-size: 1rem;
+    // }
 }

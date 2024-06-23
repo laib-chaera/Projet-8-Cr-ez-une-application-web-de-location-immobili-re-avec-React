@@ -1,6 +1,7 @@
 import React from "react"
 import Collapse from "../../composants/collapse/collapse"
 import "./infoLogement.scss"
+import Rating from "../../composants/rating/rating"
 
 function InfoLogement({
     title,
@@ -13,7 +14,7 @@ function InfoLogement({
 }) {
     return (
         <div className="info-logement">
-            <div className="titles">
+            <div className="info-logement__titles">
                 <h2>{title}</h2>
                 <h3>{location}</h3>
             </div>
@@ -24,12 +25,22 @@ function InfoLogement({
                     </span>
                 ))}
             </div>
-            <div className="rating">{rating}</div>
-            <div className="host">
-                <p className="host-name">{host.name}</p>
-                <img src={host.picture} alt="Host" className="host-picture" />
+            <div className="rating-host">
+                <div>
+                    <Rating rating={rating} />
+                </div>
+
+                <div className="host">
+                    <p className="host__name">{host.name}</p>
+                    <img
+                        src={host.picture}
+                        alt="Host"
+                        className="host__picture"
+                    />
+                </div>
             </div>
-            <div className="description-equipments">
+
+            <div className="collapse">
                 <Collapse title="Description" content={description} />
                 <Collapse title="Équipements" content={equipments.join(", ")} />
             </div>

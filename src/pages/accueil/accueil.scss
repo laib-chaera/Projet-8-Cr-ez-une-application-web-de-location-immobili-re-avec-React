@@ -21,4 +21,9 @@ body {
     display: flex;
     flex-direction: column;
     gap: 20px;
+    margin: 0 auto;
+
+    @media (max-width: 335px) {
+        width: 100%;
+    }
 }
