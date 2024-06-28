@@ -48,7 +48,7 @@
     position: relative;
     width: 100%;
     max-width: 86vw;
-    margin: 0 auto;
+    margin: 20px auto;
 
     .carousel-image {
         width: 100%;
@@ -57,7 +57,7 @@
         object-fit: cover;
 
         @media (max-width: 650px) {
-            height: 300px;
+            height: auto;
         }
     }
     .arrow-left,
@@ -84,7 +84,7 @@
         padding: 5px;
         border-radius: 5px;
 
-        @media (max-width: 650px) {
+        @media (max-width: 750px) {
             display: none;
         }
     }

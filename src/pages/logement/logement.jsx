@@ -22,7 +22,7 @@ function Logement() {
     }
 
     return (
-        <div>
+        <div className="logement-container">
             <Carousel pictures={logementFound.pictures} />
             <InfoLogement
                 title={logementFound.title}

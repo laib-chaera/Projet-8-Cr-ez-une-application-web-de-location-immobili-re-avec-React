@@ -8,16 +8,22 @@
     width: 100%;
     max-width: 86vw;
     margin: 0 auto;
-    padding: 2rem 3rem;
+    padding: 2rem 0 0 0;
 
     @media (max-width: 550px) {
         padding: 1rem 1.5rem;
-        font-size: 0.7rem;
+        font-size: 1.2rem;
+    }
+
+    @media (max-width: 450px) {
+        padding: 1rem 1rem;
+        font-size: 1rem;
     }
 
     &__img {
         @media (max-width: 550px) {
             width: 145px;
+            height: 47px;
         }
     }
 }
