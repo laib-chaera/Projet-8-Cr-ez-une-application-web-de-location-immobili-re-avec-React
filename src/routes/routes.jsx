@@ -28,9 +28,3 @@ function AllRoutes() {
 }
 
 export default AllRoutes
-
-// Le composant AllRoutes définit les différentes routes de l'application en utilisant le composant Route de React Router.
-// Il importe les composants Accueil, APropos, Logement et NotFound pour les associer à des routes spécifiques.
-// La route "/" est associée au composant Accueil, la route "/aPropos" est associée au composant APropos,
-//la route "/logement/:id" est associée au composant Logement pour afficher les détails d'un logement en fonction de son identifiant unique,
-// et la route "*" est associée au composant NotFound pour gérer les pages non trouvées.

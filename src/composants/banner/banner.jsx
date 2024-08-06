@@ -12,4 +12,3 @@ function Banner() {
 }
 
 export default Banner
-// Le composant Banner affiche une image de fond et un titre.

@@ -3,15 +3,12 @@ import starInactive from "../../assets/star-inactive.png"
 import "./rating.scss"
 
 function Rating({ rating }) {
-    //Création d'un systeme de notation de 5 étoiles qui prend en paramètre la note du logement.
-
-    const totalStar = 5 //Définition du nombre total d'étoiles.
-    const fullStarNumber = parseInt(rating) //Conversion de la note du logement en entier.
-    const emptyStarNumber = totalStar - fullStarNumber //Calcul du nombre d'étoiles vides.
+    const totalStar = 5
+    const fullStarNumber = parseInt(rating)
+    const emptyStarNumber = totalStar - fullStarNumber
 
     return (
         <div className="container-stars">
-            {/* Créer un tableau qui rend les étoiles remplies. */}
             {[...Array(fullStarNumber)].map((e, i) => (
                 <img
                     className="star"
@@ -20,7 +17,6 @@ function Rating({ rating }) {
                     alt="Full Star Rating"
                 />
             ))}
-            {/*Créer un tableau qui rend les étoiles vides. */}
             {[...Array(emptyStarNumber)].map((e, i) => (
                 <img
                     className="star-empty"

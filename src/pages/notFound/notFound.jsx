@@ -2,8 +2,6 @@ import React from "react"
 import "./notFound.scss"
 import { NavLink } from "react-router-dom"
 
-// ---------------COMPOSANT NOTFOUND-------------------
-
 function NotFound() {
     return (
         <div className="notFound">
@@ -17,5 +15,3 @@ function NotFound() {
 }
 
 export default NotFound
-// Le composant NotFound  affiche un message d'erreur 404 et un lien pour retourner à la page d'accueil.
-// Il importe le composant Link de React Router pour créer un lien vers la page d'accueil.
