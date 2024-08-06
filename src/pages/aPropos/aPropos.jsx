@@ -27,3 +27,7 @@ function Apropos() {
 }
 
 export default Apropos
+
+//Le composant Apropos affiche des informations sur la fiabilité, le respect, le service et la sécurité de Kasa.
+// Il contient le composant Collapse qui affiche ces informations de manière interactive. Chaque section peut être ouverte ou fermée en cliquant sur le titre correspondant.
+// Il passe en prop le titre qui contient le nom de la section et le contenu qui contient le texte à afficher.

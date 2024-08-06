@@ -1,17 +1,9 @@
 import React from "react"
-import Collapse from "../../composants/collapse/collapse"
 import "./infoLogement.scss"
+import Collapse from "../../composants/collapse/collapse"
 import Rating from "../../composants/rating/rating"
 
-function InfoLogement({
-    title,
-    location,
-    tags,
-    rating,
-    host,
-    description,
-    equipments,
-}) {
+function InfoLogement({title,location,tags, rating, host, description,equipments,}) {
     return (
         <div className="info-logement">
             <div className="css">
@@ -28,7 +20,6 @@ function InfoLogement({
                         ))}
                     </div>
                 </div>
-
                 <div className="rating-host">
                     <div className="host">
                         <p className="host__name">{host.name}</p>
@@ -43,7 +34,6 @@ function InfoLogement({
                     </div>
                 </div>
             </div>
-
             <div className="collapse">
                 <Collapse title="Description" content={description} />
                 <Collapse title="Équipements" content={equipments.join(", ")} />
@@ -51,5 +41,8 @@ function InfoLogement({
         </div>
     )
 }
-
 export default InfoLogement
+
+// Le composant InfoLogement affiche les informations détaillées d'un logement, y compris le titre, l'emplacement, les tags, l'évaluation, l'hôte, la description et les équipements.
+// Il utilise les composants Collapse et Rating pour afficher la description et les équipements du logement, ainsi que l'évaluation de l'hôte.
+//Les composants enfants reçoivent les données du logement via les props title, location, tags, rating, host, description et equipments créées dans le composant parent Logement.

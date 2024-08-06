@@ -1,6 +1,6 @@
 import React from "react"
 import "./notFound.scss"
-import { Link } from "react-router-dom"
+import { NavLink } from "react-router-dom"
 
 // ---------------COMPOSANT NOTFOUND-------------------
 
@@ -11,9 +11,11 @@ function NotFound() {
             <p className="notFound__p">
                 Oups! La page que vous demandez n'existe pas.
             </p>
-            <Link to="/">Retourner sur la page d’accueil</Link>
+            <NavLink to="/">Retourner sur la page d’accueil</NavLink>
         </div>
     )
 }
 
 export default NotFound
+// Le composant NotFound  affiche un message d'erreur 404 et un lien pour retourner à la page d'accueil.
+// Il importe le composant Link de React Router pour créer un lien vers la page d'accueil.
