@@ -1,3 +1,5 @@
+// Affiche une page 404 pour les routes non trouvées.
+
 import React from "react"
 import "./notFound.scss"
 import { NavLink } from "react-router-dom"

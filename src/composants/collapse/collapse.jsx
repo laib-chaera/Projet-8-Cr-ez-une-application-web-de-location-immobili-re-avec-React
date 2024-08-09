@@ -1,12 +1,18 @@
+//-----  Affiche une section repliable.
+
 import React, { useState } from "react"
 import chevron from "../../assets/chevron.png"
 import "./collapse.scss"
+
+//State: Utilise useState pour gérer la visibilité du contenu.
 
 function Collapse({ title, content }) {
     const [visible, setVisible] = useState(false)
     const alternVisibility = () => {
         setVisible(!visible)
     }
+
+    //Gestion des événements: Utilise onClick pour basculer la visibilité.
     return (
         <div className="section-apartment">
             <div className="apartment__description">

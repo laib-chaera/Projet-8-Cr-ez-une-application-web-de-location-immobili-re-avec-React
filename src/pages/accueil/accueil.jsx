@@ -1,3 +1,5 @@
+// Affiche la liste des logements disponibles sur la plateforme
+
 import React from "react"
 import "./accueil.scss"
 import Banner from "../../composants/banner/banner.jsx"

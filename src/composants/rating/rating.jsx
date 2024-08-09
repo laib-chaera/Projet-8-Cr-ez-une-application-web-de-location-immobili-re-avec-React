@@ -1,3 +1,5 @@
+//------Affiche un systeme de notation sous forme d'étoiles----
+
 import starActiv from "../../assets/star-active.png"
 import starInactive from "../../assets/star-inactive.png"
 import "./rating.scss"

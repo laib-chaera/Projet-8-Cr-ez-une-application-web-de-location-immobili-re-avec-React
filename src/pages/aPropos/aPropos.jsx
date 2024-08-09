@@ -1,3 +1,5 @@
+// -------affiche une page "À propos" avec plusieurs sections repliables.-------
+
 import React from "react"
 import Collapse from "../../composants/collapse/collapse"
 import logo from "../../assets/kalen-emsley-Bkci_8qcdvQ-unsplash 2.png"
